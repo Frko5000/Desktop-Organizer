@@ -1,4 +1,4 @@
-# simple desktop rganizer
+# simple desktop organizer
 
 uh its vibecoded so use it claude is lvoe 
 
@@ -21,7 +21,10 @@ checks ur desktop n moves files into these categories
 git clone [https://github.com/Frko50000/Desktop-Organizer.git](https://github.com/Frko50000/Desktop-Organizer.git)
 cd Desktop-Organizer
 
-run it python organizer.py
+run it :
+python organizer.py
 
 if u have a file with an extension that isnt in the configit just goes into a folder named "other"
 uh ya can edit ur config.json n add new things
+
+im not even sure that ts is workin well lol :c
