@@ -4,50 +4,54 @@ import json
 
 def load_config():
     if not os.path.exists('config.json'):
-        print("Error: config.json not found.")
+        print("Error: config.json not found!")
         return None
     with open('config.json', 'r') as f:
         return json.load(f)
 
 def run_organizer():
-    # Get desktop path
-    desktop = os.path.join(os.path.expanduser("~"), "Desktop")
-    rules = load_config()
+    user_home = os.path.expanduser("~")
+    desktop_path = os.path.join(user_home, "Desktop")
+    onedrive_path = os.path.join(user_home, "OneDrive", "Desktop")
     
-    if not rules:
+    if os.path.exists(onedrive_path):
+        desktop_path = onedrive_path
+
+    print(f"Target path: {desktop_path}")
+    
+    config = load_config()
+    if not config:
         return
 
-    # Files to stay on desktop
-    exclude = ["organizer.py", "config.json", "README.md"]
+    exclude = ["organizer.py", "config.json", "README.md", "desktop.ini"]
+    counter = 0
 
-    for file in os.listdir(desktop):
-        file_path = os.path.join(desktop, file)
+    for item in os.listdir(desktop_path):
+        item_path = os.path.join(desktop_path, item)
 
-        if os.path.isdir(file_path) or file in exclude:
+        if os.path.isdir(item_path) or item in exclude:
             continue
 
-        # Get extension
-        ext = os.path.splitext(file)[1].lower()
+        extension = os.path.splitext(item)[1].lower()
         
-        # Find category
         target_folder = "Other"
-        for folder, extensions in rules.items():
-            if ext in extensions:
+        for folder, extensions in config.items():
+            if extension in extensions:
                 target_folder = folder
                 break
 
-        dest_path = os.path.join(desktop, target_folder)
-        
-        if not os.path.exists(dest_path):
-            os.makedirs(dest_path)
+        dest_dir = os.path.join(desktop_path, target_folder)
+        if not os.path.exists(dest_dir):
+            os.makedirs(dest_dir)
 
         try:
-            shutil.move(file_path, os.path.join(dest_path, file))
-            print(f"Moved: {file} -> {target_folder}")
+            shutil.move(item_path, os.path.join(dest_dir, item))
+            print(f"Moved: {item} -> {target_folder}")
+            counter += 1
         except Exception as e:
-            print(f"Error moving {file}: {e}")
+            print(f"Could not move {item}: {e}")
+
+    print(f"\nDone! {counter} files organized.")
 
 if __name__ == "__main__":
-    print("Desktop Organizer is running...")
     run_organizer()
-    print("Done.")
