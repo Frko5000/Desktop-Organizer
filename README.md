@@ -1,0 +1,27 @@
+# simple desktop rganizer
+
+uh its vibecoded so use it claude is lvoe 
+
+## Features
+- **super fastt:** reel speed
+- **noice config:** u can change which file goes where in the json
+- **lightweight:** no extra libraries needed. just pure python.
+
+## how it works
+checks ur desktop n moves files into these categories
+- **Images:** `.jpg`, `.png`, `.gif`, 
+- **Documents:** `.pdf`, `.docx`, `.txt`, 
+- **Installers:** `.exe`, `.msi`.
+- **Archives:** `.zip`, `.rar`.
+
+## Installation & Usage
+
+1. **clone ts repo (if u want it local):**
+```bash
+git clone [https://github.com/Frko50000/Desktop-Organizer.git](https://github.com/Frko50000/Desktop-Organizer.git)
+cd Desktop-Organizer
+
+run it python organizer.py
+
+if u have a file with an extension that isnt in the configit just goes into a folder named "other"
+uh ya can edit ur config.json n add new things
