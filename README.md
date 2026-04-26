@@ -24,7 +24,7 @@ cd Desktop-Organizer
 run it :
 python organizer.py
 
-if u have a file with an extension that isnt in the configit just goes into a folder named "other"
+if u have a file with an extension that isnt in the confi git just goes into a folder named "other"
 uh ya can edit ur config.json n add new things
 
 im not even sure that ts is workin well lol :c
