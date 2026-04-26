@@ -18,7 +18,7 @@ checks ur desktop n moves files into these categories
 
 1. **clone ts repo (if u want it local):**
 ```bash
-git clone [https://github.com/Frko50000/Desktop-Organizer.git](https://github.com/Frko50000/Desktop-Organizer.git)
+git clone [https://github.com/Frko5000/Desktop-Organizer.git](https://github.com/Frko5000/Desktop-Organizer.git)
 cd Desktop-Organizer
 
 run it :
